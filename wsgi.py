@@ -23,6 +23,7 @@ from pineboolib.application.parsers import qsaparser
 qsaparser.USE_THREADS = False
 
 
+SQL_CONN = ProjectConfig(database=DATABASES["default"]["NAME"], host=DATABASES["default"]["HOST"], port=DATABASES["default"]["PORT"], type="PostgreSQL (PSYCOPG2)", username=DATABASES["default"]["USER"], password=DATABASES["default"]["PASSWORD"])
 
 print("Usando encoding para consola", sys.stdout.encoding)
 
