@@ -6,6 +6,10 @@
             {
                 "name": "dependencias.json",
                 "path": "config/"
+            },
+            {
+                "name": "wsgi.py",
+                "path": "AQNEXT/"
             }
         ],
         "deleteFile": [],
