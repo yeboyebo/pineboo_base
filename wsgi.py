@@ -25,13 +25,15 @@ qsaparser.USE_THREADS = False
 
 SQL_CONN = ProjectConfig(database=DATABASES["default"]["NAME"], host=DATABASES["default"]["HOST"], port=DATABASES["default"]["PORT"], type="PostgreSQL (PSYCOPG2)", username=DATABASES["default"]["USER"], password=DATABASES["default"]["PASSWORD"])
 
-print("Usando encoding para consola", sys.stdout.encoding)
+if StaticLoader:
 
-config.set_value("StaticLoader/%s/enabled" % (db_name), True)  # Para activar carga estática
+    print("Usando encoding para consola", sys.stdout.encoding)
 
-config.set_value("ebcomportamiento/SLConsola", True)  # Muestra debug por consola
+    config.set_value("StaticLoader/%s/enabled" % (DATABASES["default"]["NAME"]), True)  # Para activar carga estática
 
-config.set_value("StaticLoader/%s/dirs" % db_name, dirs)
+    config.set_value("ebcomportamiento/SLConsola", True)  # Muestra debug por consola
+
+    config.set_value("StaticLoader/%s/dirs" % DATABASES["default"]["NAME"], dirs)
 
 
 config.set_value("application/dbadmin_enabled", True) # para dbadmin (comprobación de mtd's)
